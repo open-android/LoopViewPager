@@ -17,7 +17,7 @@ allprojects {
 }
 
 dependencies {
-    compile 'com.github.open-android:loopviewpager:1.0.1'
+    compile 'com.github.open-android:loopviewpager:1.0.0'
 }
 ```
 
