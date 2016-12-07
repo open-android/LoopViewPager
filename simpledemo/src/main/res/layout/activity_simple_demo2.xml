@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.itheima.loopviewpager.LoopViewPager
+        android:id="@+id/lvp_pager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:loopTime="3000">
+
+        <com.itheima.loopviewpager.LoopTitleView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textColor="#0000FF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.itheima.loopviewpager.LoopDotsView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            app:dotResource="@mipmap/dot_normal"
+            app:dotSelectResource="@mipmap/dot_selected"
+            app:dotSize="15dp" />
+
+    </com.itheima.loopviewpager.LoopViewPager>
+
+</LinearLayout>

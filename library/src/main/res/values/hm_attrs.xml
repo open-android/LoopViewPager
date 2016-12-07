@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LoopViewPager">
+        <!-- 轮播时间，默认值0表示不自动轮播 -->
+        <attr name="loopTime" format="integer" />
+        <!-- 动画时间 -->
+        <attr name="animTime" format="integer" />
+        <!-- 动画效果 -->
+        <attr name="animStyle" format="enum">
+            <!-- 折叠效果 -->
+            <enum name="accordion" value="1" />
+            <enum name="accordionUp" value="2" />
+            <!-- 立方体效果 -->
+            <enum name="cube" value="3" />
+            <enum name="cubeUp" value="4" />
+        </attr>
+        <!-- 是否可以手动滚动页面，默认true -->
+        <attr name="scrollEnable" format="boolean" />
+        <!-- 触摸页面是否停止轮播，默认true -->
+        <attr name="touchEnable" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="LoopDotsView">
+        <!-- 圆点大小 -->
+        <attr name="dotSize" format="integer|dimension|reference" />
+        <!-- 圆点宽度 -->
+        <attr name="dotWidth" format="integer|dimension|reference" />
+        <!-- 圆点高度 -->
+        <attr name="dotHeight" format="integer|dimension|reference" />
+        <!-- 圆点距离 -->
+        <attr name="dotRange" format="integer|dimension|reference" />
+        <!-- 圆点形状 -->
+        <attr name="dotShape">
+            <!-- 矩形，默认值 -->
+            <enum name="rectangle" value="1" />
+            <!-- 圆形 -->
+            <enum name="oval" value="2" />
+            <!-- 三角形 -->
+            <enum name="triangle" value="3" />
+            <!-- 菱形 -->
+            <enum name="diamond" value="4" />
+        </attr>
+        <!-- 圆点颜色，默认值0xFFFFFFFF -->
+        <attr name="dotColor" format="color|reference" />
+        <!-- 圆点选中颜色，默认值0x55000000 -->
+        <attr name="dotSelectColor" format="color|reference" />
+        <!-- 圆点资源 -->
+        <attr name="dotResource" format="reference" />
+        <!-- 圆点选中资源 -->
+        <attr name="dotSelectResource" format="reference" />
+    </declare-styleable>
+
+</resources>
