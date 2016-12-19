@@ -233,7 +233,6 @@ public class SimpleDemo2 extends AppCompatActivity {
 #最低版本
 v14+
 
-#QQ交流群
-334700525
+
 
 [回到顶部](#readme)
