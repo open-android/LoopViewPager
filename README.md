@@ -1,10 +1,13 @@
 # LoopViewPager
 Android LoopViewPager 页面轮播控件
-
+* 简 书：http://www.jianshu.com/p/f847325e8a28
+* CSDN：http://www.jianshu.com/p/f847325e8a28
 #添加权限
 ```xml
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
 #添加依赖
