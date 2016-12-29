@@ -1,7 +1,8 @@
 # LoopViewPager
 Android LoopViewPager 页面轮播控件
 * 简 书：http://www.jianshu.com/p/f847325e8a28
-* CSDN：http://www.jianshu.com/p/f847325e8a28
+* CSDN：http://blog.csdn.net/mwq384807683/article/details/53691752
+
 #添加权限
 ```xml
     <uses-permission android:name="android.permission.INTERNET" />
