@@ -3,6 +3,14 @@ Android LoopViewPager 页面轮播控件
 * 简 书：http://www.jianshu.com/p/f847325e8a28
 * CSDN：http://blog.csdn.net/mwq384807683/article/details/53691752
 
+#运行效果
+![image](demo.gif)
+
+* 更多干货请下载app
+
+
+![黑马助手.png](http://upload-images.jianshu.io/upload_images/4037105-f777f1214328dcc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 #添加权限
 ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -231,11 +239,13 @@ public class SimpleDemo2 extends AppCompatActivity {
 
 }
 ```
-#运行效果
-![image](demo.gif)
 
-#最低版本
-v14+
+
+* 详细的使用方法在DEMO里面都演示啦,如果你觉得这个库还不错,请赏我一颗star吧~~~
+
+* 欢迎关注微信公众号
+
+![](http://upload-images.jianshu.io/upload_images/4037105-8f737b5104dd0b5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 
