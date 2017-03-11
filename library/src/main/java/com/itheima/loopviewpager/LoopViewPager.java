@@ -45,6 +45,9 @@ public class LoopViewPager<T> extends FrameLayout implements View.OnTouchListene
     private int showIndex;
     private LoopPagerAdapter loopPagerAdapter;
     private LoopPageChangeListener pageChangeListener;
+    private float downX;
+    private float downY;
+    private long downTime;
 
     private Handler handler = new Handler() {
         @Override
@@ -61,6 +64,7 @@ public class LoopViewPager<T> extends FrameLayout implements View.OnTouchListene
 
     public LoopViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setClickable(false);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.LoopViewPager);
         loopTime = a.getInt(R.styleable.LoopViewPager_loopTime, 0);
         animTime = a.getInt(R.styleable.LoopViewPager_animTime, 0);
@@ -127,23 +131,37 @@ public class LoopViewPager<T> extends FrameLayout implements View.OnTouchListene
     }
 
     @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (loopTime > 0 && touchEnable) {
-            switch (motionEvent.getAction()) {
-                case MotionEvent.ACTION_DOWN:
+    public boolean onTouch(View view, MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                downX = event.getX();
+                downY = event.getY();
+                downTime = System.currentTimeMillis();
+                if (loopTime > 0 && touchEnable) {
                     handler.removeCallbacksAndMessages(null);
-                    break;
-                case MotionEvent.ACTION_UP:
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                float x = Math.abs(event.getX() - downX);
+                float y = Math.abs(event.getY() - downY);
+                float t = Math.abs(System.currentTimeMillis() - downTime);
+                if (Math.abs(event.getX() - downX) < 20 && Math.abs(event.getY() - downY) < 20 && System.currentTimeMillis() - downTime < 200) {
+                    if (onItemClickListener != null) {
+                        onItemClickListener.onItemClick(view, realIndex);
+                    }
+                }
+                if (loopTime > 0 && touchEnable) {
                     handler.sendEmptyMessageDelayed(CODE, loopTime);
-                    break;
-            }
+                }
+                break;
         }
-        return super.onTouchEvent(motionEvent);
+        return super.onTouchEvent(event);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         if (scrollEnable) {
+
             return super.onInterceptTouchEvent(ev);
         } else {
             return true;
@@ -165,6 +183,7 @@ public class LoopViewPager<T> extends FrameLayout implements View.OnTouchListene
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             View view = getDefaultItemView(position % imgLength);
+            view.setClickable(false);
             container.addView(view);
             return view;
         }
@@ -177,6 +196,7 @@ public class LoopViewPager<T> extends FrameLayout implements View.OnTouchListene
     }
 
     private class LoopPageChangeListener implements ViewPager.OnPageChangeListener {
+
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         }
@@ -223,14 +243,6 @@ public class LoopViewPager<T> extends FrameLayout implements View.OnTouchListene
                 Glide.with(getContext()).load(((String[]) imgData)[currentIndex]).centerCrop().into((ImageView) view);
             }
         }
-        view.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (onItemClickListener != null) {
-                    onItemClickListener.onItemClick(view, currentIndex);
-                }
-            }
-        });
         return view;
     }
 
@@ -243,14 +255,14 @@ public class LoopViewPager<T> extends FrameLayout implements View.OnTouchListene
         getLoopChild(this);
         realIndex = 1000 * imgLength;
         showIndex = -1;
-        if (pageChangeListener == null){
+        if (pageChangeListener == null) {
             pageChangeListener = new LoopPageChangeListener();
             viewPager.setOnPageChangeListener(pageChangeListener);
         }
-        if (loopPagerAdapter == null){
+        if (loopPagerAdapter == null) {
             loopPagerAdapter = new LoopPagerAdapter();
             viewPager.setAdapter(loopPagerAdapter);
-        }else{
+        } else {
             loopPagerAdapter.notifyDataSetChanged();
         }
         viewPager.setOnTouchListener(this);
