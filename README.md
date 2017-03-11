@@ -29,7 +29,7 @@ allprojects {
 }
 
 dependencies {
-    compile 'com.github.open-android:LoopViewPager:1.0.0'
+    compile 'com.github.open-android:LoopViewPager:2.0.0'
 }
 ```
 
