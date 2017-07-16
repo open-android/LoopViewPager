@@ -3,7 +3,7 @@ Android LoopViewPager 页面轮播控件
 * 简 书：http://www.jianshu.com/p/f847325e8a28
 * CSDN：http://blog.csdn.net/mwq384807683/article/details/53691752
 
-#运行效果
+# 运行效果
 ![image](demo.gif)
 
 * 爱生活,爱学习,更爱做代码的搬运工,分类查找更方便请下载黑马助手app
@@ -11,7 +11,7 @@ Android LoopViewPager 页面轮播控件
 
 ![黑马助手.png](http://upload-images.jianshu.io/upload_images/4037105-f777f1214328dcc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#添加权限
+# 添加权限
 ```xml
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -19,7 +19,7 @@ Android LoopViewPager 页面轮播控件
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-#添加依赖
+# 添加依赖
 ```xml
 allprojects {
     repositories {
@@ -33,7 +33,7 @@ dependencies {
 }
 ```
 
-#可配置的属性
+# 可配置的属性
 ```xml
     <declare-styleable name="LoopViewPager">
         <!-- 轮播时间，默认值0表示不自动轮播 -->
@@ -84,14 +84,14 @@ dependencies {
         <attr name="dotSelectResource" format="reference" />
     </declare-styleable>
 ```
-#配置说明
+# 配置说明
 - 1、loopTime的值应不小于1s，如果值为0，则不自动轮播；
 - 2、animTime的值应小于loopTime；
 - 3、dotWidth、dotHeight、dotRange如果没有设置，则默认值为dotSize；
 - 4、如果设置了dotResource、dotSelectResource，则dotShape、dotColor、dotSelectColor配置不生效；
 - 5、轮播调用start()方法，停止轮播调用stop()方法，start前至少设置setImgData、setImgLength、setTitleData中的其中一个；
 
-#代码示例
+# 代码示例
 ###XML
 ```xml
     <com.itheima.loopviewpager.LoopViewPager
@@ -164,7 +164,7 @@ dependencies {
         return titleData;
     }
 ```
-#如何自定义
+# 如何自定义
 ```java
 public class SimpleDemo2 extends AppCompatActivity {
 
